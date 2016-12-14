@@ -105,7 +105,7 @@ public class Action
 		try
 		{
 			PrintStream ps = new PrintStream(socket.getOutputStream());
-			ps.println("OPER:CHAL:" + src + "-" + name);
+			ps.println("OPER:INVI:" + src + "-" + name);
 			HashMapData.getInstance().getMatching().put(src, dst);
 		} catch (IOException e)
 		{
@@ -128,7 +128,7 @@ public class Action
 			PrintStream ps = new PrintStream(socket.getOutputStream());
 			if ("YES".equals(answer)) // 同意对战
 			{
-				ps.println("REPL:CHAL:" + src + "-" + name + "&YES");
+				ps.println("REPL:INVI:" + src + "-" + name + "&YES");
 				HMD.getMatching().remove(dst);
 				HMD.addMatchs(dst, src);
 
@@ -140,7 +140,7 @@ public class Action
 				publicGameData.sendStartMessage();
 			} else if ("NO".equals(answer))
 			{
-				ps.println("REPL:CHAL:" + src + "-" + name + "&NO");
+				ps.println("REPL:INVI:" + src + "-" + name + "&NO");
 				HMD.getMatching().remove(dst);
 			} else
 			{

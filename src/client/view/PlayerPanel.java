@@ -3,7 +3,6 @@ package client.view;
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
@@ -13,7 +12,8 @@ import client.control.InvitationListener;
 import client.control.LeaveListener;
 import client.model.ListData;
 
-public class PlayerPanel extends JPanel {
+public class PlayerPanel extends JPanel
+{
 	private static final long serialVersionUID = 1L;
 
 	private JPanel PlayerBar;
@@ -25,7 +25,8 @@ public class PlayerPanel extends JPanel {
 	private JButton invitation;
 	private JButton leave;
 
-	public PlayerPanel() {
+	public PlayerPanel()
+	{
 		PlayerBar = new JPanel();
 		PlayerBody = new JPanel();
 		PlayerButtom = new JPanel(new BorderLayout());

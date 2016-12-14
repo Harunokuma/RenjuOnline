@@ -43,7 +43,7 @@ public class Analysis
 				String str = read.substring(5);
 
 				// »Ø¸´ÑûÇë
-				if (str.substring(0, 5).equals("CHAL:"))
+				if (str.substring(0, 5).equals("INVI:"))
 					new Action().replyInvitation(id, str.substring(5));
 			}
 
@@ -64,7 +64,7 @@ public class Analysis
 			{
 				String str = read.substring(5);
 				// ÑûÇëÍæ¼Ò
-				if (str.substring(0, 5).equals("CHAL:"))
+				if (str.substring(0, 5).equals("INVI:"))
 				{
 					str = str.substring(5);
 					int target = Integer.parseInt(str);
