@@ -10,11 +10,10 @@ import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
 import client.control.InvitationListener;
-import client.control.leavealListener;
-import client.model.ListData;;
+import client.control.LeaveListener;
+import client.model.ListData;
 
-public class PlayerPanel extends JPanel
-{
+public class PlayerPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JPanel PlayerBar;
@@ -24,11 +23,36 @@ public class PlayerPanel extends JPanel
 	private JScrollPane listPane;
 
 	private JButton invitation;
-	private JButton leaveal;
+	private JButton leave;
 
-	public PlayerPanel()
-	{
-		
+	public PlayerPanel() {
+		PlayerBar = new JPanel();
+		PlayerBody = new JPanel();
+		PlayerButtom = new JPanel(new BorderLayout());
+
+		listPane = new JScrollPane();
+
+		invitation = new JButton("Invitate");
+		invitation.addActionListener(new InvitationListener());
+		leave = new JButton("leave");
+		leave.addActionListener(new LeaveListener());
+
+		ListData.getInstance().getList().setFixedCellWidth(200);
+		listPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		listPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		listPane.setViewportView(ListData.getInstance().getList());
+
+		PlayerBody.add(listPane);
+
+		PlayerButtom.add(invitation, BorderLayout.WEST);
+		PlayerButtom.add(leave, BorderLayout.EAST);
+
+		this.setLayout(new BorderLayout());
+		this.setBorder(new TitledBorder(new EtchedBorder(), "Player", TitledBorder.CENTER, TitledBorder.TOP));
+
+		this.add(PlayerBar, BorderLayout.NORTH);
+		this.add(PlayerBody, BorderLayout.CENTER);
+		this.add(PlayerButtom, BorderLayout.SOUTH);
 	}
 
 }
