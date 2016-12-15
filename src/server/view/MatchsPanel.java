@@ -15,8 +15,8 @@ public class MatchsPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 
-	JList matchsList = null;
-	DefaultListModel model = null;
+	JList<String> matchsList = null;
+	DefaultListModel<String> model = null;
 
 	public MatchsPanel()
 	{
@@ -33,22 +33,22 @@ public class MatchsPanel extends JPanel
 
 	}
 
-	public JList getMatchsList()
+	public JList<String> getMatchsList()
 	{
 		if (matchsList == null)
 		{
-			matchsList = new JList(getModel());
-			matchsList.setFixedCellWidth(150);
+			matchsList = new JList<String>(getModel());
+			matchsList.setFixedCellWidth(200);
 			matchsList.setVisibleRowCount(10);
 		}
 		return matchsList;
 	}
 
-	public DefaultListModel getModel()
+	public DefaultListModel<String> getModel()
 	{
 
 		if (model == null)
-			model = new DefaultListModel();
+			model = new DefaultListModel<String>();
 
 		return model;
 	}
@@ -62,7 +62,6 @@ public class MatchsPanel extends JPanel
 
 	public void removeMatchs(Integer id)
 	{
-
-		this.getModel().removeElement(id + "-----" + HashMapData.getInstance().getMatchs().get(id));
+		this.getModel().removeElement(id + " vs " + HashMapData.getInstance().getMatchs().get(id));
 	}
 }

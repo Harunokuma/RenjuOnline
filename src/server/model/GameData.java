@@ -115,13 +115,28 @@ public class GameData
 	
 	public void restart(int src)
 	{
+		int dst = HashMapData.getInstance().getClient(src).getOppoID();
+		
 		if(src == ClientA)
+		{
 			if(restartA == false)
 				restartA = true;
+			
+			if(restartB == false)
+				this.getPrintStreamB().println("SYST:" + HashMapData.getInstance().getName(dst) + " is waiting for you to restart a game."
+						+ "If you want to restart a game, click restart button.");
+		}
+			
 		
 		if(src == ClientB)
+		{
 			if(restartB == false)
 				restartB = true;
+			
+			if(restartA == false)
+				this.getPrintStreamA().println("SYST:" + HashMapData.getInstance().getName(dst) + " is waiting for you to restart a game."
+						+ "If you want to restart a game, click restart button.");
+		}
 		
 		if(restartA && restartB)
 		{

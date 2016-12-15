@@ -7,9 +7,8 @@ import javax.swing.JOptionPane;
 
 import client.model.GameData;
 import client.model.NetData;
-import client.view.CheckBoardCanvas;
 import client.view.ClientFrame;
-import server.model.MessageData;
+import client.model.MessageData;
 
 public class LeaveListener implements ActionListener
 {
@@ -25,9 +24,9 @@ public class LeaveListener implements ActionListener
 			GameData.getInstance().setStarted(false);
 			GameData.getInstance().setMyChess(0);
 			
-			CheckBoardCanvas board = ClientFrame.getInstance().getGamePanel().getBoard();
-			board.drawChess();
-			board.repaint();
+			ClientFrame.getInstance().getGamePanel().getBoard().update();
+			ClientFrame.getInstance().getFunctionPanel().getPlayerPanel().getOppoInfo().setText(
+					"opponent: null");
 			
 			MessageData.getInstance().addMessage("You can invite another player now!");
 		}

@@ -70,6 +70,11 @@ public class GameData
 		else
 			turn = BLACK;
 	}
+	
+	public void clearTurn()
+	{
+		turn = 0;
+	}
 
 	public int getTurn()
 	{
@@ -118,6 +123,7 @@ public class GameData
 		int x = position % 15;
 
 		checkBoard[x][y] = turn;
+		turn *= -1;
 	}
 
 	public int getChess(int x, int y)

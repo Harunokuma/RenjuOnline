@@ -35,7 +35,8 @@ public class CheckBoardCanvas extends Canvas
 
 	public void drawBackGround()
 	{
-		this.setBackground(Color.yellow);
+		graphics2d.setColor(new Color(80, 80, 80));;
+		graphics2d.fillRect(0, 0, WIDTH, HEIGHT);
 		graphics2d.setColor(Color.white);
 
 		for (int i = 0; i < 15; i++)
@@ -60,6 +61,13 @@ public class CheckBoardCanvas extends Canvas
 					graphics2d.fillOval(i * 35 + 4, j * 35 + 4, 33, 33);
 				}
 			}
+	}
+	
+	public void update()
+	{
+		drawBackGround();
+		drawChess();
+		repaint();
 	}
 
 	public int getWidth()

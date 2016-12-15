@@ -13,8 +13,8 @@ public class ClientPanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 	
-	JList clientList = null;
-	DefaultListModel model = null;
+	JList<Integer> clientList = null;
+	DefaultListModel<Integer> model = null;
 	
 	public ClientPanel(){
 		JScrollPane listPane = new JScrollPane();
@@ -28,10 +28,10 @@ public class ClientPanel extends JPanel
 		this.setBorder(new TitledBorder(new EtchedBorder(), "Client list" ,TitledBorder.CENTER ,TitledBorder.TOP ));
 	}
 	
-	public JList getClientList(){
+	public JList<Integer> getClientList(){
 		if(clientList == null)
 		{
-			clientList = new JList(this.getModel());
+			clientList = new JList<Integer>(this.getModel());
 			clientList.setFixedCellWidth(150);
 			clientList.setVisibleRowCount(10);
 		}
@@ -39,10 +39,10 @@ public class ClientPanel extends JPanel
 		return clientList;
 	}
 	
-	public DefaultListModel getModel()
+	public DefaultListModel<Integer> getModel()
 	{
 		if(model == null)
-			model = new DefaultListModel();
+			model = new DefaultListModel<Integer>();
 		
 		return model;
 	}

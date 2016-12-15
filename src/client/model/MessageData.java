@@ -6,7 +6,7 @@ public class MessageData
 {
 	private static MessageData instance = null;
 
-	private TextArea MessageArea = null;
+	private TextArea messageArea = null;
 
 	private MessageData()
 	{
@@ -21,9 +21,9 @@ public class MessageData
 
 	public TextArea getMessageArea()
 	{
-		if (MessageArea == null)
-			MessageArea = new TextArea("", 16, 28, TextArea.SCROLLBARS_VERTICAL_ONLY);
-		return MessageArea;
+		if (messageArea == null)
+			messageArea = new TextArea("", 16, 35, TextArea.SCROLLBARS_VERTICAL_ONLY);
+		return messageArea;
 	}
 
 	public void addMessage(String message)

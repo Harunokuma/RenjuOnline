@@ -28,6 +28,7 @@ public class ServerFrame extends JFrame
 	{
 		this.setLayout(new BorderLayout());
 		this.setVisible(true);
+		this.setResizable(false);
 		this.setLocation(400, 100);
 
 		this.add(getClientPanel(), BorderLayout.WEST);

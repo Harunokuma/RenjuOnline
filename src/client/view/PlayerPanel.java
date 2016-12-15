@@ -3,6 +3,7 @@ package client.view;
 import java.awt.BorderLayout;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EtchedBorder;
@@ -19,6 +20,7 @@ public class PlayerPanel extends JPanel
 	private JPanel PlayerBar;
 	private JPanel PlayerBody;
 	private JPanel PlayerButtom;
+	private JLabel oppoInfo;
 
 	private JScrollPane listPane;
 
@@ -28,7 +30,7 @@ public class PlayerPanel extends JPanel
 	public PlayerPanel()
 	{
 		PlayerBar = new JPanel();
-		PlayerBody = new JPanel();
+		PlayerBody = new JPanel(new BorderLayout());
 		PlayerButtom = new JPanel(new BorderLayout());
 
 		listPane = new JScrollPane();
@@ -43,7 +45,8 @@ public class PlayerPanel extends JPanel
 		listPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		listPane.setViewportView(ListData.getInstance().getList());
 
-		PlayerBody.add(listPane);
+		PlayerBody.add(listPane,BorderLayout.CENTER);
+		PlayerBody.add(getOppoInfo(), BorderLayout.SOUTH);
 
 		PlayerButtom.add(invitation, BorderLayout.WEST);
 		PlayerButtom.add(leave, BorderLayout.EAST);
@@ -54,6 +57,13 @@ public class PlayerPanel extends JPanel
 		this.add(PlayerBar, BorderLayout.NORTH);
 		this.add(PlayerBody, BorderLayout.CENTER);
 		this.add(PlayerButtom, BorderLayout.SOUTH);
+	}
+	
+	public JLabel getOppoInfo()
+	{
+		if(oppoInfo == null)
+			oppoInfo = new JLabel("opponent: null");
+		return oppoInfo;
 	}
 
 }

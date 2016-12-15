@@ -26,7 +26,7 @@ public class ServerThread implements Runnable
 		boolean connected = true;
 		InputStream is;
 		String read = null;
-		MessageData.getInstance().addMessage("Player" + this.hashCode() + " is online!");
+		MessageData.getInstance().addMessage("Client [" + this.hashCode() + "] is online!");
 		
 		while(connected){
 			try{

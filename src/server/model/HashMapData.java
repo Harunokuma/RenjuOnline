@@ -70,9 +70,35 @@ public class HashMapData
 	
 	public void removeMatchs(Integer id)
 	{
-		getMatchs().remove(id);
+		int oppoId = getClient(id).getOppoID();
+		int keyId = 0;
 		
-		ServerFrame.getInstance().getMatchsPanel().removeMatchs(id);
+		if(getMatchs().containsKey(id))
+			keyId = id;
+		else if(getMatchs().containsKey(oppoId))
+			keyId = oppoId;
+		else 
+			return;
+		
+		ServerFrame.getInstance().getMatchsPanel().removeMatchs(keyId);
+		getMatchs().remove(keyId);
+		
+		
+	}
+	
+	public void removeMatching(Integer id)
+	{
+		int oppoId = getClient(id).getOppoID();
+		int keyId = 0;
+		
+		if(getMatching().containsKey(id))
+			keyId = id;
+		else if(getMatching().containsKey(oppoId))
+			keyId = oppoId;
+		else 
+			return;
+		
+		getMatching().remove(keyId);
 	}
 	
 	public HashMap<Integer, Integer> getMatching()

@@ -21,6 +21,9 @@ public class GamePanel extends JPanel
 
 	private JLabel splitter = null;
 	private JLabel connectInfo = null;
+	private JLabel connectHint = null;
+	private JLabel nameHint = null;
+	private JLabel statusHint = null;
 
 	private JTextField ipIn = null;
 	private JTextField portIn = null;
@@ -30,19 +33,25 @@ public class GamePanel extends JPanel
 
 	public GamePanel()
 	{
-		connectBtn = new JButton("Login");
+		connectHint = new JLabel("IP & port:");
+		nameHint = new JLabel("name:");
 		splitter = new JLabel(":");
-
+		statusHint = new JLabel("status:");
+		connectBtn = new JButton("Login");
+		
 		connectBtn.addActionListener(new LoginListener());
 
 		gameBar = new JPanel();
 		gameBar.setLayout(new FlowLayout());
-		gameBar.add(this.getConnectInfo());
+		gameBar.add(this.connectHint);
 		gameBar.add(this.getIpIn());
 		gameBar.add(this.splitter);
 		gameBar.add(this.getPortIn());
-		gameBar.add(this.connectBtn);
+		gameBar.add(this.nameHint);
 		gameBar.add(this.getNameIn());
+		gameBar.add(this.connectBtn);
+		gameBar.add(this.statusHint);
+		gameBar.add(this.getConnectInfo());
 
 		gameBody = new JPanel();
 		gameBody.add(this.getBoard());

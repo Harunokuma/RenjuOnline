@@ -10,14 +10,17 @@ public class MessagePanel extends JPanel
 {
 	private static final long serialVersionUID = 1L;
 
+	private JPanel message = new JPanel(new BorderLayout());
 	private JTextField inputMessage = null;
 
 	public MessagePanel()
 	{
 		this.setLayout(new BorderLayout());
-		this.add(MessageData.getInstance().getMessageArea(), BorderLayout.CENTER);
+		
+		message.add(MessageData.getInstance().getMessageArea(), BorderLayout.CENTER);
 		getInputMessage().addActionListener(new MessageListener());
-		this.add(this.getInputMessage(), BorderLayout.SOUTH);
+		message.add(this.getInputMessage(), BorderLayout.SOUTH);
+		this.add(message);
 	}
 
 	public JTextField getInputMessage()

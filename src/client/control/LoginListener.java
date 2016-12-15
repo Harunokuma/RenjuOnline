@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 import client.model.GameData;
 import client.model.NetData;
 import client.view.ClientFrame;
-import server.model.MessageData;
+import client.model.MessageData;
 
 public class LoginListener implements ActionListener{
 

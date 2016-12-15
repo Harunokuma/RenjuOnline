@@ -89,7 +89,7 @@ public class Action
 		try
 		{
 			PrintStream ps = new PrintStream(socket.getOutputStream());
-			ps.println("CHAT:" + message + "&" + src + "-" + name);
+			ps.println("CHAT:" + message + "&" + name);
 		} catch (IOException e)
 		{
 			e.printStackTrace();
@@ -128,19 +128,21 @@ public class Action
 			PrintStream ps = new PrintStream(socket.getOutputStream());
 			if ("YES".equals(answer)) // 同意对战
 			{
-				ps.println("REPL:INVI:" + src + "-" + name + "&YES");
+				ps.println("REPL:" + src + "-" + name + "&YES");
 				HMD.getMatching().remove(dst);
 				HMD.addMatchs(dst, src);
 
 				GameData publicGameData = new GameData();
 				HMD.getGameDatas().put(dst, publicGameData);
 				HMD.getGameDatas().put(src, publicGameData);
+				HMD.getClient(src).setOppoID(dst);
+				HMD.getClient(dst).setOppoID(src);
 
 				publicGameData.startPlay(src, dst);
 				publicGameData.sendStartMessage();
 			} else if ("NO".equals(answer))
 			{
-				ps.println("REPL:INVI:" + src + "-" + name + "&NO");
+				ps.println("REPL:" + src + "-" + name + "&NO");
 				HMD.getMatching().remove(dst);
 			} else
 			{
@@ -179,10 +181,8 @@ public class Action
 			e.printStackTrace();
 		}
 
-		if (HMD.getMatchs().containsKey(src)) // 如果使用src作key
-			HMD.getMatchs().remove(src);
-		else // 如果是用dst作key
-			HMD.getMatchs().remove(dst);
+		// 移除配对信息
+		HMD.removeMatchs(src);
 
 		// 移除GameData
 		HMD.getGameDatas().remove(src);

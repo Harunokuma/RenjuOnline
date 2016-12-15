@@ -21,7 +21,7 @@ public class MessageData
 	
 	public JTextArea getMessageArea(){
 		if(messageArea == null)
-			messageArea = new JTextArea("",20,15);
+			messageArea = new JTextArea("",20,25);
 		return messageArea;
 	}
 	

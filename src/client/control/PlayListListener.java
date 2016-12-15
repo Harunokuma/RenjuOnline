@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 import client.model.GameData;
 import client.model.ListData;
 import client.model.NetData;
-import server.model.MessageData;
+import client.model.MessageData;
 
 public class PlayListListener extends MouseAdapter
 {
