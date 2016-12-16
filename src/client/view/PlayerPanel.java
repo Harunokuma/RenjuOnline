@@ -35,9 +35,9 @@ public class PlayerPanel extends JPanel
 
 		listPane = new JScrollPane();
 
-		invitation = new JButton("Invitate");
+		invitation = new JButton("Invite");
 		invitation.addActionListener(new InvitationListener());
-		leave = new JButton("leave");
+		leave = new JButton("Leave");
 		leave.addActionListener(new LeaveListener());
 
 		ListData.getInstance().getList().setFixedCellWidth(200);

@@ -78,7 +78,7 @@ public class GamePanel extends JPanel
 	public JTextField getIpIn()
 	{
 		if (ipIn == null)
-			ipIn = new JTextField("127.0.0.1", 9);
+			ipIn = new JTextField("123.207.218.103", 9);
 		return ipIn;
 	}
 
