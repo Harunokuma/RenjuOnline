@@ -26,15 +26,16 @@ public class EndDeal
 			{
 				e.printStackTrace();
 			}
+			HMD.removeMatchs(id);
+
+			if (HMD.getGameDatas().containsKey(id)) // 如果已经生成了游戏数据
+				HMD.getGameDatas().remove(id);
+
+			if (HMD.getGameDatas().containsKey(oppoId)) // 如果对手也生成了游戏数据
+				HMD.getGameDatas().remove(oppoId);
 		}
-		HMD.removeMatchs(id);
+
 		HMD.removeMatching(id);
-
-		if (HMD.getGameDatas().containsKey(id)) // 如果已经生成了游戏数据
-			HMD.getGameDatas().remove(id);
-
-		if (HMD.getGameDatas().containsKey(oppoId)) // 如果对手也生成了游戏数据
-			HMD.getGameDatas().remove(oppoId);
 
 		new Action().removeClient(id);
 		MessageData.getInstance().addMessage("Client [" + id + "] is offline");
